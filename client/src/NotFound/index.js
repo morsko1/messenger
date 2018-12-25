@@ -1,2 +1,3 @@
-import NotFound from './components/NotFound.jsx';
+import NotFound from './containers';
+
 export default NotFound;

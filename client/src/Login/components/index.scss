@@ -1,0 +1,78 @@
+@import 'common/styles/common';
+
+.login-container__inner {
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2em;
+    font-size: 1.25em;
+    padding: 1em;
+    border-radius: 0.2em;
+    border: 2px solid $color-light-grey;
+    margin-top: 2em;
+}
+
+.login-container__title {
+    border-bottom: 2px solid $color-light-grey;
+    margin-bottom: 1em;
+}
+
+.login-container__username,
+.login-container__password {
+    display: flex;
+    flex-direction: column;
+}
+.login-container__form label {
+    margin-bottom: 0.5em;
+}
+
+.login-container__form input {
+    font-size: 100%;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+.login-container__submit-button {
+    width: 100%;
+    text-align: center;
+    font-size: 100%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    cursor: pointer;
+    background-color: $color-main;
+    border: 1px solid $color-grey;
+    border-radius: 0.2em;
+}
+
+.login-container__link-to-register-wrapper,
+.login-container__link-to-home-wrapper {
+    text-align: center;
+    padding-top: 1em;
+}
+
+.login-container__link-to-register,
+.login-container__link-to-home {
+    @include link-main();
+    padding-left: 0.5em;
+}
+
+.login-container__loader {
+    @include loader();
+}
+
+.login-container__error {
+    text-align: center;
+    color: $color-error;
+    padding: 1em;
+}
+
+@media only screen and (max-width: 480px) {
+    .login-container__inner {
+        max-width: none;
+        width: auto;
+        padding-top: 2em;
+        border-radius: none;
+        border: none;
+        margin-top: 1em;
+    }
+}

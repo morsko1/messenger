@@ -1,0 +1,80 @@
+@import 'common/styles/common';
+
+.register-container__inner {
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2em;
+    font-size: 1.25em;
+    padding: 1em;
+    border-radius: 0.2em;
+    border: 2px solid $color-light-grey;
+    margin-top: 2em;
+}
+
+.register-container__title {
+    border-bottom: 2px solid $color-light-grey;
+    margin-bottom: 1em;
+}
+
+.register-container__username,
+.register-container__email,
+.register-container__password,
+.register-container__password-confirm {
+    display: flex;
+    flex-direction: column;
+}
+.register-container__form label {
+    margin-bottom: 0.5em;
+}
+
+.register-container__form input {
+    font-size: 100%;
+    padding: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+.register-container__submit-button {
+    width: 100%;
+    text-align: center;
+    font-size: 100%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    cursor: pointer;
+    background-color: $color-main;
+    border: 1px solid $color-grey;
+    border-radius: 0.2em;
+}
+
+.register-container__link-to-login-wrapper,
+.register-container__link-to-home-wrapper {
+    text-align: center;
+    padding-top: 1em;
+}
+
+.register-container__link-to-login,
+.register-container__link-to-home {
+    @include link-main();
+    padding-left: 0.5em;
+}
+
+.register-container__loader {
+    @include loader();
+}
+
+.register-container__error {
+    text-align: center;
+    color: $color-error;
+    padding: 1em;
+}
+
+@media only screen and (max-width: 480px) {
+    .register-container__inner {
+        max-width: none;
+        width: auto;
+        padding-top: 2em;
+        border-radius: none;
+        border: none;
+        margin-top: 1em;
+    }
+}

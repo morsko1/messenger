@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const config = require('../../config');
 
 const registerHandler = (req, res) => {

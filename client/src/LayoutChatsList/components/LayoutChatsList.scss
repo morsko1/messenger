@@ -1,0 +1,13 @@
+.layout-chat-list-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.chat-list-col {
+    width: 30%;
+}
+
+.chat-placeholder-col {
+    width: 70%;
+}

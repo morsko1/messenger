@@ -1,8 +1,9 @@
 import React from 'react';
+import './Chat.scss';
 
 const ChatView = props => {
     return (
-        <div>ChatView</div>
+        <div className="chat">ChatView</div>
     );
 }
 

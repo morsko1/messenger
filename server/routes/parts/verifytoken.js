@@ -25,7 +25,8 @@ const verifytokenHandler = (req, res) => {
                     const userToSend = {
                         username: user.username,
                         email: user.email,
-                        isAdmin: user.isAdmin
+                        isAdmin: user.isAdmin,
+                        chats: user.chats
                     };
                     res.send({success: true, user: userToSend});
                     client.close();

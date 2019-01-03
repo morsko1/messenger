@@ -2,6 +2,7 @@ import React from 'react';
 import MediaQuery from 'react-responsive';
 import ChatsList from '~/ChatsList';
 import Chat from '~/Chat';
+import './LayoutChat.scss';
 
 const LayoutChatsListView = props => {
     return (
@@ -10,11 +11,11 @@ const LayoutChatsListView = props => {
                 <Chat />
             </MediaQuery>
             <MediaQuery minWidth={768}>
-                <div className="row">
-                    <div className="col-4">
+                <div className="layout-chat-row">
+                    <div className="chats-list-col">
                         <ChatsList />
                     </div>
-                    <div className="col-8">
+                    <div className="chat-col">
                         <Chat />
                     </div>
                 </div>

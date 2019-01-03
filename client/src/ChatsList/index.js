@@ -1,2 +1,2 @@
-import ChatsList from './components/ChatsList.jsx';
+import ChatsList from './containers';
 export default ChatsList;

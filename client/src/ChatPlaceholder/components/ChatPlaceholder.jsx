@@ -1,8 +1,9 @@
 import React from 'react';
+import './ChatPlaceholder.scss';
 
 const ChatPlaceholderView = props => {
     return (
-        <div>ChatPlaceholderView</div>
+        <div className="chat-placeholder">ChatPlaceholderView</div>
     );
 }
 

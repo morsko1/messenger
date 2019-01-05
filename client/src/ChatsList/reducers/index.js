@@ -1,7 +1,8 @@
 import * as actionsChatsList from '../actions';
 
 const initialState = {
-    chats: []
+    chats: [],
+    users: []
 };
 
 export default (state = initialState, action) => {
@@ -10,6 +11,12 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 chats: action.payload.chats
+            };
+
+        case actionsChatsList.SET_USERS:
+            return {
+                ...state,
+                users: action.payload.users
             };
 
         default:

@@ -14,7 +14,7 @@ const verifytokenHandler = (req, res) => {
         const userId = decoded._id;
 
         MongoClient.connect(config.connectionUrl, (err, client) => {
-            client.db(config.dbName).collection(config.collectionName).findOne({
+            client.db(config.dbName).collection(config.collectionNameUsers).findOne({
                 '_id': new ObjectID(userId)
             }, (err, user) => {
                 if (user === null) {

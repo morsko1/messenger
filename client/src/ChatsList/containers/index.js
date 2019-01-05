@@ -11,19 +11,25 @@ class ChatsList extends Component {
     render() {
         return (
             <ChatsListView
+                startChat={this.props.startChat}
                 goToChatPage={this.props.goToChatPage}
                 chats={this.props.chats}
+                user={this.props.user}
+                users={this.props.users}
             />
         );
     }
 }
 
 const mapStateToProps = state => ({
-    chats: state.chatsList.chats
+    chats: state.chatsList.chats,
+    user: state.user.user,
+    users: state.chatsList.users
 });
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
+        startChat: (participants) => thunkChatsList.startChat(participants),
         goToChatPage: navigation.goToChatPage
     },
     dispatch

@@ -1,6 +1,7 @@
 import * as actionsUser from '../actions';
 import axios from 'axios';
 import {setChats} from '~/ChatsList/actions';
+import {getAllUsers} from '~/ChatsList/thunks';
 
 export const getUser = () => (dispatch) => {
     const token = localStorage.getItem('token');
@@ -20,6 +21,7 @@ export const getUser = () => (dispatch) => {
         dispatch(actionsUser.getUserSuccess());
         dispatch(actionsUser.setUser(response.data.user));
         dispatch(setChats(response.data.user.chats));
+        dispatch(getAllUsers());
     }).catch((error) => {
         localStorage.removeItem('token');
         dispatch(actionsUser.getUserFailure(error));

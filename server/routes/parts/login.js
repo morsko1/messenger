@@ -6,7 +6,7 @@ const config = require('../../config');
 
 const loginHandler = (req, res) => {
     MongoClient.connect(config.connectionUrl, (err, client) => {
-        client.db(config.dbName).collection(config.collectionName).findOne({
+        client.db(config.dbName).collection(config.collectionNameUsers).findOne({
             username: req.body.username
         }, (err, user) => {
             if (user === null) {

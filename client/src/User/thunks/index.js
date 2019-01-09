@@ -4,6 +4,7 @@ import {setChats} from '~/ChatsList/actions';
 import {getAllUsers} from '~/ChatsList/thunks';
 
 export const getUser = () => (dispatch) => {
+    dispatch(actionsUser.testWSMessage('hello'));
     const token = localStorage.getItem('token');
     if (!token) {
         return;

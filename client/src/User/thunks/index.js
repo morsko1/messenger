@@ -4,7 +4,6 @@ import {setChats} from '~/ChatsList/actions';
 import {getAllUsers} from '~/ChatsList/thunks';
 
 export const getUser = () => (dispatch) => {
-    dispatch(actionsUser.testWSMessage('hello'));
     const token = localStorage.getItem('token');
     if (!token) {
         return;
@@ -21,7 +20,8 @@ export const getUser = () => (dispatch) => {
         }
         dispatch(actionsUser.getUserSuccess());
         dispatch(actionsUser.setUser(response.data.user));
-        dispatch(setChats(response.data.user.chats));
+        dispatch(actionsUser.connectWebsocket(response.data.user.username));
+        // dispatch(setChats(response.data.user.chats));
         dispatch(getAllUsers());
     }).catch((error) => {
         localStorage.removeItem('token');

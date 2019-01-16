@@ -2,7 +2,10 @@ import * as actionsLogin from '../actions';
 import {push} from 'react-router-redux';
 import axios from 'axios';
 
-import {setUser} from '~/User/actions';
+import {
+    setUser,
+    connectWebsocket
+} from '~/User/actions';
 
 export const login = () => (dispatch, getState) => {
     const state = getState().login;
@@ -22,6 +25,7 @@ export const login = () => (dispatch, getState) => {
             const {token, user} = response.data;
             localStorage.setItem('token', token);
             dispatch(setUser(user));
+            dispatch(connectWebsocket(user.username));
             dispatch(actionsLogin.loginSuccess(response.data));
             dispatch(push('/'));
         })

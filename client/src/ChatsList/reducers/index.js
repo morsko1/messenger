@@ -2,7 +2,8 @@ import * as actionsChatsList from '../actions';
 
 const initialState = {
     chats: [],
-    users: []
+    users: [],
+    visibleView: 'chats'
 };
 
 export default (state = initialState, action) => {
@@ -17,6 +18,12 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 users: action.payload.users
+            };
+
+        case actionsChatsList.SET_VISIBLE_VIEW:
+            return {
+                ...state,
+                visibleView: action.payload.view
             };
 
         default:

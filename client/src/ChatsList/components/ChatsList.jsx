@@ -16,7 +16,7 @@ const getChatsList = props => {
                         </div>
                     );
                 }) :
-                null
+                <div className="chats-list__empty">Нет бесед</div>
             }
         </div>
     );
@@ -36,8 +36,8 @@ const getSearch = props => {
                                         key={user.username}
                                         onClick={() => {
                                             props.goToChatPage(user.username);
-                                            props.startChat([props.user.username, user.username]);
                                             // create conversation
+                                            // props.startChat([props.user.username, user.username]);
                                         }}
                                     >
                                         {user.username}
@@ -53,12 +53,32 @@ const getSearch = props => {
     );
 }
 
+const getNavigateButton = props => {
+    return (
+        props.visibleView === 'chats' ?
+            <div
+                className="chats-list__search-button"
+                onClick={() => {props.setVisibleView('search');}}
+            >
+                Поиск
+            </div> :
+            <div
+                className="chats-list__search-button-close"
+                onClick={() => {props.setVisibleView('chats');}}
+            >
+                Назад
+            </div>
+    )
+}
+
 const ChatsListView = props => {
     return (
         <div className="chats-list">
-            <div className="chats-list__header">ChatsListView</div>
-            {getSearch(props)}
-            {getChatsList(props)}
+            <div className="chats-list__header">
+                ChatsListView
+                {getNavigateButton(props)}
+            </div>
+            {props.visibleView === 'chats' ? getChatsList(props) : getSearch(props)}
         </div>
     );
 }

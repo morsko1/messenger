@@ -18,6 +18,7 @@ class ChatsList extends Component {
                 users={this.props.users}
                 visibleView={this.props.visibleView}
                 setVisibleView={this.props.setVisibleView}
+                openChat={this.props.openChat}
             />
         );
     }
@@ -34,6 +35,7 @@ const mapDispatchToProps = dispatch =>
     bindActionCreators({
         startChat: (participants) => thunkChatsList.startChat(participants),
         setVisibleView: (view) => actionsChatsList.setVisibleView(view),
+        openChat: (chat) => thunkChatsList.openChat(chat),
         goToChatPage: navigation.goToChatPage
     },
     dispatch

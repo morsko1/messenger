@@ -10,7 +10,10 @@ const getChatsList = props => {
                         <div
                             className="chats-list__item"
                             key={chat.id}
-                            onClick={() => {props.goToChatPage(chat.id)}}
+                            onClick={() => {
+                                props.goToChatPage(chat.id);
+                                props.openChat(chat);
+                            }}
                         >
                             {chat.participants && chat.participants.join(', ')}
                         </div>
@@ -36,6 +39,7 @@ const getSearch = props => {
                                         key={user.username}
                                         onClick={() => {
                                             props.goToChatPage(user.username);
+                                            props.openChat({id: 'someId', participants: [user.username, props.user.username]});
                                             // create conversation
                                             // props.startChat([props.user.username, user.username]);
                                         }}

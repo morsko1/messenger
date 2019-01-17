@@ -25,6 +25,11 @@ export default (state = initialState, action) => {
                 ...state,
                 visibleView: action.payload.view
             };
+        case actionsChatsList.ADD_CHAT:
+            return {
+                ...state,
+                chats: [...state.chats, action.payload.chat]
+            };
 
         default:
             return state;

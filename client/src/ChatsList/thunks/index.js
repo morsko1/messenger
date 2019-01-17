@@ -1,5 +1,6 @@
 import * as actionsChatList from '../actions';
 import axios from 'axios';
+import {setChat} from '~/Chat/actions/';
 
 export const getAllUsers = () => (dispatch) => {
     const token = localStorage.getItem('token');
@@ -37,4 +38,19 @@ export const startChat = (participants) => (dispatch) => {
     }).catch((error) => {
         console.log('error =', error);
     });
+}
+
+const isChatExists = (chats, chat) => {
+    const foundChat = chats.find(item => {
+        return chat.id === item.id;
+    });
+    return foundChat ? true : false;
+}
+
+export const openChat = (chat) => (dispatch, getState) => {
+    const chats = getState().chatsList.chats;
+    if (!isChatExists(chats, chat)) {
+        dispatch(actionsChatList.addChat(chat));
+    }
+    dispatch(setChat(chat));
 }

@@ -1,2 +1,2 @@
-import Chat from './components/Chat.jsx';
+import Chat from './containers';
 export default Chat;

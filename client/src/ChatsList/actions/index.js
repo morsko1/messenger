@@ -1,6 +1,7 @@
 export const SET_CHATS = 'chatsList/SET_CHATS';
 export const SET_USERS = 'chatsList/SET_USERS';
 export const SET_VISIBLE_VIEW = 'chatsList/SET_VISIBLE_VIEW';
+export const ADD_CHAT = 'chatsList/ADD_CHAT';
 
 export const setChats = (chats) => ({
     type: SET_CHATS,
@@ -20,5 +21,12 @@ export const setVisibleView = (view) => ({
     type: SET_VISIBLE_VIEW,
     payload: {
         view
+    }
+});
+
+export const addChat = (chat) => ({
+    type: ADD_CHAT,
+    payload: {
+        chat
     }
 });

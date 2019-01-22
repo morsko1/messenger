@@ -11,8 +11,8 @@ const getChatsList = props => {
                             className="chats-list__item"
                             key={chat.id}
                             onClick={() => {
-                                props.goToChatPage(chat.id);
                                 props.openChat(chat);
+                                if (window.location.pathname !== '/chat') props.goToChatPage();
                             }}
                         >
                             {chat.participants && chat.participants.join(', ')}
@@ -38,10 +38,8 @@ const getSearch = props => {
                                     <div
                                         key={user.username}
                                         onClick={() => {
-                                            props.goToChatPage(user.username);
                                             props.openChat({id: 'someId', participants: [user.username, props.user.username]});
-                                            // create conversation
-                                            // props.startChat([props.user.username, user.username]);
+                                            if (window.location.pathname !== '/chat') props.goToChatPage();
                                         }}
                                     >
                                         {user.username}

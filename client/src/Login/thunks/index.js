@@ -1,6 +1,8 @@
 import * as actionsLogin from '../actions';
 import {push} from 'react-router-redux';
 import axios from 'axios';
+import {getAllUsers} from '~/ChatsList/thunks';
+import * as navigation from '~/common/navigation.js';
 
 import {
     setUser,
@@ -27,7 +29,8 @@ export const login = () => (dispatch, getState) => {
             dispatch(setUser(user));
             dispatch(connectWebsocket(user.username));
             dispatch(actionsLogin.loginSuccess(response.data));
-            dispatch(push('/'));
+            dispatch(navigation.goToHomePage());
+            dispatch(getAllUsers());
         })
         .catch((error) => {
             dispatch(actionsLogin.loginFailure(error));

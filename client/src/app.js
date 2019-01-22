@@ -14,9 +14,10 @@ const App = () => (
     <div className={'app-container'}>
         <main>
             <Switch>
-                <Route exact path='/'><Redirect to={{pathname: '/chats'}} /></Route>
-                <Route exact path='/chats' component={LayoutChatsList} />
-                <Route exact path='/chats/:id' component={LayoutChat} />
+                {/*<Route exact path='/'><Redirect to={{pathname: '/chats'}} /></Route>
+                <Route exact path='/chats' component={LayoutChatsList} />*/}
+                <Route exact path='/' component={LayoutChatsList} />
+                <Route exact path='/chat' component={LayoutChat} />
                 <Route exact path='/register' component={Register} />
                 <Route exact path='/login' component={Login} />
                 <Route component={NotFound} />

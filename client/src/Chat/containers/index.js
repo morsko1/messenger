@@ -11,7 +11,11 @@ class Chat extends Component {
 
     componentDidMount() {
         console.log('Chat didMount ---');
+        if (this.props.chat === null) {
+            this.props.goToHomePage();
+        }
     }
+
     render() {
         return (
             <ChatView
@@ -29,7 +33,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
-        setChat: (chat) => actionsChat.setChat(chat)
+        setChat: (chat) => actionsChat.setChat(chat),
+        goToHomePage: navigation.goToHomePage
     },
     dispatch
 );

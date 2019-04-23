@@ -9,6 +9,7 @@ import {getUser} from './User/thunks';
 
 const target = document.querySelector('#root');
 
+// init app: get all neccessary info (user, messages)
 store.dispatch(getUser());
 
 render(

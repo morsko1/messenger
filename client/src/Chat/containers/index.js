@@ -21,6 +21,9 @@ class Chat extends Component {
             <ChatView
                 chat={this.props.chat}
                 user={this.props.user}
+                input={this.props.input}
+                handleInput={this.props.handleInput}
+                sendMessage={this.props.sendMessage}
             />
         );
     }
@@ -28,13 +31,16 @@ class Chat extends Component {
 
 const mapStateToProps = state => ({
     chat: state.chat.chat,
-    user: state.user.user
+    user: state.user.user,
+    input: state.chat.input
 });
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators({
         setChat: (chat) => actionsChat.setChat(chat),
-        goToHomePage: navigation.goToHomePage
+        goToHomePage: navigation.goToHomePage,
+        handleInput: (text) => actionsChat.handleInput(text),
+        sendMessage: (text) => thunkChat.sendMessage(text),
     },
     dispatch
 );

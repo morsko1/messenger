@@ -12,9 +12,30 @@ module.exports.listen = (server) => {
             delete clients[id];
             console.log('user disconnected --- ', id);
         });
-         socket.on('message', (message) => {
-            console.log('message =', message);
-            socket.send({data: 'message from server: ' + message.message});
+        socket.on('message', (type, message) => {
+            switch (type) {
+                case 'SEND_MESSAGE':
+                    console.log('type = ', type);
+                    console.log('message = ', message);
+                    const receiver = message.receivers[0];
+                    const messageToSend = {
+                        sender: message.sender,
+                        receiver: receiver,
+                        body: message.body,
+                        date: message.date
+                    }
+                    if (receiver in clients) {
+                        console.log('to send = ', messageToSend)
+                        clients[receiver].send(messageToSend);
+                    } else {
+                        // need to save message to db
+                    }
+                    // socket.send('SEND_MESSAGE', action.payload.message);
+                    break;
+
+                default:
+                    break;
+            }
         });
     });
 

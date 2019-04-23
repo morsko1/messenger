@@ -38,7 +38,7 @@ const getSearch = props => {
                                     <div
                                         key={user.username}
                                         onClick={() => {
-                                            props.openChat({id: 'someId', participants: [user.username, props.user.username]});
+                                            props.openChat({id: user.username, participants: [user.username, props.user.username]});
                                             if (window.location.pathname !== '/chat') props.goToChatPage();
                                         }}
                                     >

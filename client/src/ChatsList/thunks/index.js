@@ -54,3 +54,18 @@ export const openChat = (chat) => (dispatch, getState) => {
     }
     dispatch(setChat(chat));
 }
+
+export const handleIncomingMessage = (message) => (dispatch, getState) => {
+    const state = getState();
+    const chats = state.chatsList.chats;
+    const chatToAdd = {
+        id: message.sender,
+        participants: [message.sender, message.receiver]
+    };
+    if (!isChatExists(chats, chatToAdd)) {
+        dispatch(actionsChatList.addChat(chatToAdd));
+    }
+    // put message to chat in ChatsList state
+    message.incoming = true;
+    dispatch(actionsChatList.addMessageToChat(message.sender, message));
+}

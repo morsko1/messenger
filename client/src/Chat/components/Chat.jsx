@@ -24,12 +24,17 @@ const getInputView = props => {
         <div className="chat__form-container">
             <form
                 className="chat__form"
-                onClick={(e) => {e.preventDefault();}}
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    props.sendMessage();
+                }}
             >
                 <input
                     type="text"
                     placeholder="Текст сообщения ..."
                     className="chat__form-input"
+                    value={props.input.text}
+                    onChange={(e) => {props.handleInput(e.target.value)}}
                 />
                 <button
                     type="submit"

@@ -31,6 +31,19 @@ export default (state = initialState, action) => {
                 chats: [...state.chats, action.payload.chat]
             };
 
+        case actionsChatsList.ADD_MESSAGE_TO_CHAT:
+            const index = state.chats.findIndex(item => item.id === action.payload.chatId);
+            const tempChat = state.chats[index];
+            if (!Array.isArray(tempChat.messages)) {
+                tempChat.messages = [];
+            };
+            tempChat.messages.push(action.payload.message);
+            const updatedChats = state.chats.splice(index, 1, tempChat);
+            return {
+                ...state,
+                chats: updatedChats
+            };
+
         default:
             return state;
     }

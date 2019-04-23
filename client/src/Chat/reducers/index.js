@@ -1,7 +1,10 @@
 import * as actionsChat from '../actions';
 
 const initialState = {
-    chat: null
+    chat: null,
+    input: {
+        text: ''
+    },
 };
 
 export default (state = initialState, action) => {
@@ -10,6 +13,16 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 chat: action.payload.chat
+            };
+
+        case actionsChat.HANDLE_INPUT:
+            const newInput = {
+                ...state.input,
+                text: action.payload.text
+            };
+            return {
+                ...state,
+                input: newInput
             };
 
         default:
